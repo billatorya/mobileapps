@@ -24,7 +24,7 @@ class HomeState extends State<Home> {
   }
 
   Future<List<User>> getUserList() async {
-    final response = await http.get("${Env.url_prefix}/list.php");
+    final response = await http.get("${Env.url_prefix}/db/list.php");
     final items = json.decode(response.body).cast<Map<String, dynamic>>();
     List<User> user = items.map<User>((json) {
       return User.fromJson(json);

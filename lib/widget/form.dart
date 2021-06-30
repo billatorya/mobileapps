@@ -5,10 +5,10 @@ class AppForm extends StatefulWidget {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   // Handles text onchange
-  TextEditingController nameController;
-  TextEditingController ageController;
+  TextEditingController namaController;
+  TextEditingController notelpController;
 
-  AppForm({this.formKey, this.nameController, this.ageController});
+  AppForm({this.formKey, this.namaController, this.notelpController});
 
   @override
   _AppFormState createState() => _AppFormState();
@@ -16,11 +16,11 @@ class AppForm extends StatefulWidget {
 
 class _AppFormState extends State<AppForm> {
   String _validateName(String value) {
-    if (value.length < 3) return 'Nama harus lebih dari 3 karakter';
+    if (value.length < 4) return 'Nama harus lebih dari 3 karakter';
     return null;
   }
 
-  String _validateAge(String value) {
+  String _validateNo(String value) {
     Pattern pattern = r'(?<=\s|^)\d+(?=\s|$)';
     RegExp regex = new RegExp(pattern);
     if (!regex.hasMatch(value)) return 'Nomer harus berupa angka tanpa spasi dan simbol';
@@ -35,16 +35,16 @@ class _AppFormState extends State<AppForm> {
       child: Column(
         children: <Widget>[
           TextFormField(
-            controller: widget.nameController,
+            controller: widget.namaController,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(labelText: 'Nama'),
             validator: _validateName,
           ),
           TextFormField(
-            controller: widget.ageController,
+            controller: widget.notelpController,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(labelText: 'No. Telp'),
-            validator: _validateAge,
+            validator: _validateNo,
           ),
         ],
       ),

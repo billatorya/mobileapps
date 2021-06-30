@@ -24,7 +24,7 @@ class _CreateState extends State<Create> {
   // Http post request to create new data
   Future _createUser() async {
     return await http.post(
-      "${Env.url_prefix}/db/add.php",
+      "${Env.url_prefix}/add.php",
       body: {
         "Nama": namaController.text,
         "No. Telp": notelpController.text,
@@ -47,7 +47,7 @@ class _CreateState extends State<Create> {
         title: Text("Create"),
       ),
       bottomNavigationBar: BottomAppBar(
-        child: ElevatedButton(
+        child: RaisedButton(
           child: Text("CONFIRM"),
           color: Colors.blue,
           textColor: Colors.white,

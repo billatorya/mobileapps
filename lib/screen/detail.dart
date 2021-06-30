@@ -16,7 +16,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {      
     void deleteData(context) {
-      http.post(Uri.parse("http://10.0.2.2/db/delete.php"),
+      http.post(Uri.parse("http://10.0.2.2/delete.php"),
       body: {'id_user': widget.list[widget.index]['id_user']});
     // Navigator.pop(context);
     Navigator.of(context)
